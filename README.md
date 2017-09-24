@@ -6,4 +6,13 @@
 2. Impatience: The anger you feel when the computer is being lazy. This makes you write programs that don't just react to your needs, but actually anticipate them. Or at least pretend to.
 3. Hubris: The quality that makes you write (and maintain) programs that other people won't want to say bad things about.
 
-> I format my computer regularly to try new OS's. I don't want to manual install things anymore. 
+> I format my computer regularly to try new OS's. I don't want to manual install things anymore.
+
+## Steps to Use (Ubuntu):
+1. sudo apt install git
+2. git clone this repository into your preferred directory
+3. cd into larry-wall directory
+4. chmod +x pre_provision.sh
+5. ./pre_provision.sh
+6. ansible-playbook provision_me_like_one_of_your_french_girls.yml
+
