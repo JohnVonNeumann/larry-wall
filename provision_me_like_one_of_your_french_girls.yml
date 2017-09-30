@@ -5,6 +5,7 @@
   gather_facts: yes
 
   roles:
+    - basic_pip_installs
     - ssh
     - ubuntu_dir_reorg
     - basic_apt_installs
