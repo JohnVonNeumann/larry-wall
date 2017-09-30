@@ -1,0 +1,20 @@
+- name: creating ssh directory
+  file:
+    path: ~/.ssh
+    state: directory
+    owner: lw
+    group: lw
+    mode: 0700 
+
+- name: installing pyOpenSSL package
+  pip:
+    name: pyOpenSSL
+
+- name: creating ssh private key
+  openssl_privatekey:
+    path: ~/.ssh/private.pem
+
+- name: generating ssh public key
+  openssl_publickey:
+    path: ~/.ssh/public.pem
+    privatekey_path: ~/.ssh/private.pem
