@@ -1,0 +1,8 @@
+- hosts: localhost
+  connection: local
+  become: yes
+  remote_user: lw
+  gather_facts: yes
+
+  roles:
+    - basic_apt_installs

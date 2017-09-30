@@ -1,0 +1,6 @@
+- name: installing some really basic packages
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - terminator
