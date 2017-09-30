@@ -6,3 +6,4 @@
 
   roles:
     - basic_apt_installs
+    - dotfiles

@@ -1,0 +1,17 @@
+- name: cloning dotfiles to import terminal settings
+  git:
+    repo: 'https://github.com/JohnVonNeumann/dotfiles.git'
+    dest: /home/lw/dotfiles
+
+- name: creating terminator config directory
+  file:
+    path: ~/.config/terminator
+    state: directory
+    mode: 0755
+
+- name: copying dotfiles into the relevant config file locations
+  copy:
+    src: /home/lw/dotfiles/.config/terminator/config
+    dest: /home/lw/.config/terminator
+    owner: lw
+    group: lw
