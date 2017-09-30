@@ -1,3 +1,16 @@
 - name: adding bitcoin stable repository to sources list
   apt_repository:
     repo: 'ppa:bitcoin/bitcoin'
+
+- name: update apt cache if last update was more than 1 minute ago
+  apt:
+    update_cache: yes
+    cache_valid_time: 60
+
+- name: installing bitcoin related packages
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - bitcoin-qt
+    - bitcoind
