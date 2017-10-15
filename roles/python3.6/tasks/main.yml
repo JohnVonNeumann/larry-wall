@@ -7,9 +7,6 @@
     dest: ~/
   register: python36
 
-- debug:
-    msg: "{{ python36 }}"
-
 - name: declaring src directory fact for cleanup actions
   set_fact:
     python36_src_dir: "{{ python36.dest }}"
@@ -36,15 +33,9 @@
     file_type: any
   register: file_find
 
-- debug:
-    msg: "{{ file_find }}"
-
 - name: declaring unarchived python36 src location for make targeting
   set_fact:
     build_target: "{{ file_find.files[0].path }}"
-
-- debug:
-    msg: "{{ build_target }}"
 
 - name: installing zlib requirements packages to compile with zlib support
   apt: 
