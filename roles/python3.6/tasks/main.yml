@@ -39,11 +39,16 @@
 
 - name: installing zlib requirements packages to compile with zlib support
   apt: 
-    name: zlib1g-dev
+    name: "{{ item }}"
+  with_items:
+    - zlib1g-dev
+    - libssl-dev
+    - libffi-dev
+    - python3-dev
   become: true
 
 - name: configuring build target from python36 src
-  command: ./configure --with-zlib=/usr/include
+  command: ./configure --with-zlib=/usr/include --enable-optimizations
   args:
     chdir: "{{ build_target }}"
 
@@ -64,8 +69,10 @@
   file:
     path: "{{ python36_build_dir }}"
     state: absent
+  become: true
 
 - name: removing archive directory
   file:
     path: "{{ python36_src_dir }}"
     state: absent
+  become: true
