@@ -1,4 +1,4 @@
-# useful docs in the event zlib issues are encounterd in the future
+# useful dxocs in the event zlib issues are encounterd in the future
 # https://www.1stbyte.com/2005/06/26/configure-and-compile-python-with-zlib/
 
 - name: downloading python3.6 source from official python site
@@ -7,24 +7,32 @@
     dest: ~/
   register: python36
 
-- name: declaring file location fact for downstream use
-  set_fact:
-    python36_src: "{{ python36.dest }}"
+- debug:
+    msg: "{{ python36 }}"
 
-- name: creating dir to unarchive python36 src into 
+- name: declaring src directory fact for cleanup actions
+  set_fact:
+    python36_src_dir: "{{ python36.dest }}"
+
+- name: creating dir to unpack src into and build out of
   file:
     path: ~/python36
     state: directory
+  register: python36_build
+
+- name: declaring build dir fact for cleanup actions
+  set_fact:
+    python36_build_dir: "{{ python36_build.path }}"
     
 - name: unarchiving python3.6 source code to enable make targeting
   unarchive:
-    src: "{{ python36_src }}"
-    dest: ~/python36
+    src: "{{ python36_src_dir }}"
+    dest: "{{ python36_build_dir }}"
   register: python36_unzip
 
 - name: getting a list of items inside the newly created python36 directory
   find:
-    paths: ~/python36
+    paths: "{{ python36_build_dir }}"
     file_type: any
   register: file_find
 
@@ -33,10 +41,10 @@
 
 - name: declaring unarchived python36 src location for make targeting
   set_fact:
-    src_path: "{{ file_find.files[0].path }}"
+    build_target: "{{ file_find.files[0].path }}"
 
 - debug:
-    msg: "{{ src_path }}"
+    msg: "{{ build_target }}"
 
 - name: installing zlib requirements packages to compile with zlib support
   apt: 
@@ -46,22 +54,27 @@
 - name: configuring build target from python36 src
   command: ./configure --with-zlib=/usr/include
   args:
-    chdir: "{{ src_path }}"
+    chdir: "{{ build_target }}"
 
 - name: building default python36 target for downstream install
   make:
-    chdir: "{{ src_path }}"
+    chdir: "{{ build_target }}"
 
 - name: make-installing python36 src into binary
   command: make install
   args: 
-    chdir: "{{ src_path }}"
+    chdir: "{{ build_target }}"
     creates: /usr/local/bin/python3.6
   become: true
   become_user: root
   become_method: sudo
-  
-  #  make:
-  #    chdir: "{{ src_path }}"
-  #    target: install
-  #  become: true
+
+- name: removing build directory
+  file:
+    path: "{{ python36_build_dir }}"
+    state: absent
+
+- name: removing archive directory
+  file:
+    path: "{{ python36_src_dir }}"
+    state: absent
