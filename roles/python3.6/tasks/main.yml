@@ -2,4 +2,58 @@
   get_url: 
     url: https://www.python.org/ftp/python/3.6.3/Python-3.6.3.tar.xz
     dest: ~/
+  register: python36
 
+- name: declaring file location fact for downstream use
+  set_fact:
+    python36_src: "{{ python36.dest }}"
+
+- name: creating dir to unarchive python36 src into 
+  file:
+    path: ~/python36
+    state: directory
+    
+- name: unarchiving python3.6 source code to enable make targeting
+  unarchive:
+    src: "{{ python36_src }}"
+    dest: ~/python36
+  register: python36_unzip
+
+- name: getting a list of items inside the newly created python36 directory
+  find:
+    paths: ~/python36
+    file_type: any
+  register: file_find
+
+- debug:
+    msg: "{{ file_find }}"
+
+- name: declaring unarchived python36 src location for make targeting
+  set_fact:
+    src_path: "{{ file_find.files[0].path }}"
+
+- debug:
+    msg: "{{ src_path }}"
+
+- name: configuring build target from python36 src
+  command: ./configure
+  args:
+    chdir: "{{ src_path }}"
+
+- name: building default python36 target for downstream install
+  make:
+    chdir: "{{ src_path }}"
+
+- name: make-installing python36 src into binary
+  command: make install
+  args: 
+    chdir: "{{ src_path }}"
+    creates: /usr/local/bin/python3.6
+  become: true
+  become_user: root
+  become_method: sudo
+  
+  #  make:
+  #    chdir: "{{ src_path }}"
+  #    target: install
+  #  become: true
