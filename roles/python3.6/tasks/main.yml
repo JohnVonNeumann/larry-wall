@@ -1,3 +1,6 @@
+# useful docs in the event zlib issues are encounterd in the future
+# https://www.1stbyte.com/2005/06/26/configure-and-compile-python-with-zlib/
+
 - name: downloading python3.6 source from official python site
   get_url: 
     url: https://www.python.org/ftp/python/3.6.3/Python-3.6.3.tar.xz
@@ -35,8 +38,13 @@
 - debug:
     msg: "{{ src_path }}"
 
+- name: installing zlib requirements packages to compile with zlib support
+  apt: 
+    name: zlib1g-dev
+  become: true
+
 - name: configuring build target from python36 src
-  command: ./configure
+  command: ./configure --with-zlib=/usr/include
   args:
     chdir: "{{ src_path }}"
 
