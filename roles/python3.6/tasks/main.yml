@@ -1,0 +1,5 @@
+- name: downloading python3.6 source from official python site
+  get_url: 
+    url: https://www.python.org/ftp/python/3.6.3/Python-3.6.3.tar.xz
+    dest: ~/
+
