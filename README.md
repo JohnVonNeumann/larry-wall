@@ -21,3 +21,6 @@
 2. input your AWS creds
 3. should be sweet to run the AWS modules now
 4. Also much safer/cleaner than vaulting your creds
+
+## IAM Role Documentation to use
+* http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html
