@@ -1,0 +1,7 @@
+- name: creating iam role for ec2 instance
+  iam_role:
+    name: bitcoin_ec2_node_role
+    assume_role_policy_document: "{{ lookup('file','main.json') }}"
+    state: present
+    managed_policy:
+      - arn:aws:iam::aws:policy/AmazonEC2FullAccess

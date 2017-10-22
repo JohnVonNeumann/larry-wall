@@ -16,3 +16,8 @@
 5. ./pre_provision.sh
 6. ansible-playbook provision_me_like_one_of_your_french_girls.yml
 
+# Steps to Use (AWS)
+1. aws configure
+2. input your AWS creds
+3. should be sweet to run the AWS modules now
+4. Also much safer/cleaner than vaulting your creds

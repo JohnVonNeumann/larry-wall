@@ -1,0 +1,7 @@
+- hosts: localhost
+  connection: local
+  remote_user: lw
+  gather_facts: yes
+
+  roles:
+    - aws_bitcoin_full_node
