@@ -1,8 +1,11 @@
 #!/bin/bash
-sudo apt install python-pip
+sudo apt install python-pip python3-pip -y
+sudo add-apt-repository ppa:jonathonf/python-3.6 -y
+sudo apt-get update
+sudo apt-get install python3.6 -y
 pip install --upgrade pip
 pip install --user virtualenv
-virtualenv venv-27
-source venv-27/bin/activate
+virtualenv -p python3.6 venv-36
+source venv-36/bin/activate
 pip install ansible
 ansible-playbook provision_me_like_one_of_your_french_girls.yml 

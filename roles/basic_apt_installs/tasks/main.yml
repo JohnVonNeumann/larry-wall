@@ -1,3 +1,8 @@
+- name: updating apt-repositories and refreshing cache
+  apt_repository:
+    repo: 'ppa:neovim-ppa/stable'
+    update_cache: True
+
 - name: installing some really basic packages
   apt:
     name: "{{ item }}"

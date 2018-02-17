@@ -1,5 +1,5 @@
 - hosts: localhost
-  connection: local
+  #connection: local
   remote_user: lw
   gather_facts: yes
 
