@@ -35,3 +35,10 @@
     dest: /home/lw
     owner: lw
     group: lw
+
+- name: updating .bashrc file
+  copy:
+    src: /home/lw/dotfiles/.bashrc
+    dest: /home/lw/.bashrc
+    owner: lw
+    group: lw
