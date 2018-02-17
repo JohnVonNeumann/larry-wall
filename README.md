@@ -25,4 +25,8 @@
 ## IAM Role Documentation to use
 * http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html
 
+## Problems encountered
+* In order to use the playbooks, you need to install Ansible, but doing it "safely" ie running it in a virtualenv at user level, requires pulling a number of processes outside of ansible based roles, which sorta defeats the purpose. I'm now understanding why you use control hosts for provision/configuration lifecycles.
 
+## Extra Steps Required After Provision
+1. Add your new keys to git related sites.
