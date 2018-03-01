@@ -10,6 +10,7 @@
   with_items:
     - python-software-properties #this 
     - python-setuptools # and this, can stay, all other moved to a "customisation role"
+    - ruby              # for inspec and other opsy tools where ruby adds a lot of flavour
     - terminator   # the terminal emulator
     - htop         # for system viewing functionality
     - neovim       # better kept fork of vim

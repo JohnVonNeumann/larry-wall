@@ -31,5 +31,9 @@
 ## Extra Steps Required After Provision
 1. Add your new keys to git related sites.
 
+## Tasks/modules to add when time comes up:
+* aws_cli
+* aws_cli autocompleter
+* inspec (deb package install, won't simply go in the general apt install role)
 ## Things to Do.
 * Refactor the basic_apt_installs role to pull "important" packages out from more "customisation" level installs, it's become kinda tainted, basic_apt_installs should be separate so other people can use it without also setting it up similar to my personal host. It should be more of a "critical system packages" install role.
