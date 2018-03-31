@@ -18,3 +18,17 @@ Resources:
       ManagedPolicyArns:
         - !Ref ManagedPolicy1
       UserName: !Ref Username
+
+  UserAccessKey:
+    Type: "AWS::IAM::AccessKey"
+    Properties:
+      # accesskey version incrementing
+      Serial: 1
+      Status: Active
+      UserName: !Ref User
+
+Outputs:
+  UserAccessKey:
+    Value: !Ref UserAccessKey
+  UserSecretAccessKey:
+    Value: !GetAtt UserAccessKey.SecretAccessKey
