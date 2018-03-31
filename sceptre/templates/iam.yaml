@@ -1,0 +1,20 @@
+# https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html
+
+Parameters:
+  Password:
+    Type: String
+  Username:
+    Type: String
+  ManagedPolicy1:
+    Type: String
+
+Resources:
+  User:
+    Type: "AWS::IAM::User"
+    Properties:
+      LoginProfile:
+        Password: !Ref Password
+        PasswordResetRequired: True
+      ManagedPolicyArns:
+        - !Ref ManagedPolicy1
+      UserName: !Ref Username
