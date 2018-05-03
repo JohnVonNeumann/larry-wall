@@ -17,3 +17,4 @@
     - xclip        # for copypasta piping usability from the cmd line
     - git-extras   # extra git functionality from old mate tj holowaychuk and co
     - redshift     # screen temperature/white light limiter
+    - sqlite3      # because easy testing database
