@@ -1,0 +1,19 @@
+- name: update repo cache
+  apt:
+    update_cache: yes
+
+- name: install nftables
+  apt:
+    name: nftables
+
+- name: install arptables
+  apt:
+    name: arptables
+
+- name: install whois
+  apt:
+    name: whois
+
+- name: install traceroute
+  apt:
+    name: traceroute
