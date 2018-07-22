@@ -1,0 +1,8 @@
+- name: update apt cache
+  apt:
+    update_cache: yes
+
+- name: install weechat
+  apt:
+    name: weechat
+    state: present
