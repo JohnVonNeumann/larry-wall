@@ -17,3 +17,7 @@
 - name: install traceroute
   apt:
     name: traceroute
+
+- name: install wireshark
+  apt:
+    name: wireshark-qt
