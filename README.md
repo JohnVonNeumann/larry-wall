@@ -37,3 +37,5 @@
 * inspec (deb package install, won't simply go in the general apt install role)
 ## Things to Do.
 * Refactor the basic_apt_installs role to pull "important" packages out from more "customisation" level installs, it's become kinda tainted, basic_apt_installs should be separate so other people can use it without also setting it up similar to my personal host. It should be more of a "critical system packages" install role.
+* Go through the overall playbook/s and clean up the overall roles into a logical ordering so that things can be installed without errors, I would imagine some decent conditionals will do the job properly. 
+* Go through the roles currently generated and make sure they're actually being called so installs are going through on first book, everytime.
