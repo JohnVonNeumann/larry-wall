@@ -5,3 +5,4 @@
 - name: install awesome window manager
   apt:
     name: awesome
+    state: present
