@@ -1,0 +1,13 @@
+# I install the modules separately instead of looping because it allows me to
+# uninstall/absent the package. naturally it's unlikely with these specific
+# modules, but overall experience has told me that I'd rather be explicit
+
+- name: update apt cache
+  apt:
+    update_cache: yes
+
+
+- name: install stress
+  apt:
+    name: stress
+    state: present
