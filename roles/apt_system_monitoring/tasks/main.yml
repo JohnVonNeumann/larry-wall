@@ -20,3 +20,18 @@
   apt:
     name: procps
     state: present
+
+- name: install net-tools
+  apt:
+    name: net-tools
+    state: present
+
+- name: install iptraf
+  apt:
+    name: iptraf
+    state: present
+
+- name: install wireshark
+  apt:
+    name: wireshark
+    state: present
