@@ -1,7 +1,5 @@
 - hosts: localhost
-  connection: local
-  become_method: sudo
-  remote_user: lw
+  become: yes 
   gather_facts: yes
 
   roles:

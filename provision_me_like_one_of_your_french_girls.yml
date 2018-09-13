@@ -1,6 +1,4 @@
 - hosts: localhost
-  #connection: local
-  remote_user: lw
   gather_facts: yes
 
   roles:
