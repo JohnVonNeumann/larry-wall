@@ -1,0 +1,8 @@
+- name: update repo cache
+  apt:
+    update_cache: yes
+
+- name: install auditd
+  apt:
+    name: auditd
+
