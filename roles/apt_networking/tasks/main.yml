@@ -21,3 +21,7 @@
 - name: install wireshark
   apt:
     name: wireshark-qt
+
+- name: install dnsmasq
+  apt:
+    name: dnsmasq
