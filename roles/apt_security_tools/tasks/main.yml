@@ -1,0 +1,7 @@
+- name: update repo cache
+  apt:
+    update_cache: yes
+
+- name: install nmap
+  apt:
+    name: nmap
