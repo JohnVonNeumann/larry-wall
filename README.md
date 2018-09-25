@@ -8,7 +8,7 @@
 
 > I format my computer regularly to try new OS's. I don't want to manual install things anymore.
 
-## Steps to Use (Ubuntu):
+## Steps to Use (Ubuntu Local):
 1. sudo apt install git
 2. git clone this repository into your preferred directory
 3. cd into larry-wall directory
@@ -16,7 +16,13 @@
 5. ./pre_provision.sh
 6. ansible-playbook provision_me_like_one_of_your_french_girls.yml
 
-# Steps to Use (AWS)
+## Steps to use (Ubuntu Remote):
+1. Copy paste the `remote_pre_provision.sh` script, from the larry-wall repo into a `script.sh` file on the remote slave host.
+2. $ chmod +x `script.sh`
+3. $ ./script.sh
+4. The host should now have SSH open, enabling you to use ansible to provision the slave host.
+
+## Steps to Use (AWS)
 1. aws configure
 2. input your AWS creds
 3. should be sweet to run the AWS modules now
