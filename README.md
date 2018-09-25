@@ -12,8 +12,8 @@
 1. sudo apt install git
 2. git clone this repository into your preferred directory
 3. cd into larry-wall directory
-4. chmod +x pre_provision.sh
-5. ./pre_provision.sh
+4. chmod +x local_pre_provision.sh
+5. ./_local__pre_provision.sh
 6. ansible-playbook provision_me_like_one_of_your_french_girls.yml
 
 ## Steps to use (Ubuntu Remote):
