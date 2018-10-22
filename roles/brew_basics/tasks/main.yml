@@ -1,0 +1,4 @@
+- name: install bash-completion
+  homebrew:
+    name: bash-completion
+    state: present
