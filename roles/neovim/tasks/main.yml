@@ -1,0 +1,5 @@
+- name: installing neovim 
+  homebrew:
+    name: neovim
+    state: present
+  when: ansible_os_family == "Darwin" 
