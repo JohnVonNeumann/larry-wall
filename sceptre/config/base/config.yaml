@@ -1,6 +1,0 @@
-# Config for the `base` stack. Base contains your low level IAM type of stuff
-# and other bits and pieces that aren't directly "one stack related"
-# DOCS: https://sceptre.cloudreach.com/latest/docs/stack_config.html
-profile: personal
-project_code: sceptre
-region: ap-southeast-2

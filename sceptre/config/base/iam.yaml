@@ -1,5 +1,0 @@
-template_path: templates/iam.yaml
-parameters:
-  Password: !environment_variable SCEPTRE_IAM_USER_PASSWORD 
-  Username: !environment_variable SCEPTRE_IAM_USER_USERNAME
-  ManagedPolicy1:  arn:aws:iam::aws:policy/AdministratorAccess 

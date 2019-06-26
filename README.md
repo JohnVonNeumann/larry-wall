@@ -14,7 +14,8 @@
 3. cd into larry-wall directory
 4. chmod +x local_pre_provision.sh
 5. ./_local__pre_provision.sh
-6. ansible-playbook provision_me_like_one_of_your_french_girls.yml
+# source to local bin because we run pip3 install with --user
+6. ~/.local/bin/ansible-playbook provision_me_like_one_of_your_french_girls.yml
 
 ## Steps to use (Ubuntu Remote):
 1. Copy paste the `remote_pre_provision.sh` script, from the larry-wall repo into a `script.sh` file on the remote slave host.
