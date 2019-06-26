@@ -2,8 +2,5 @@
   gather_facts: yes
 
   roles:
-    - basic_pip_installs
     - { role: ssh, become: yes }
-    - ubuntu_dir_reorg
     - { role: basic_apt_installs, become: yes }
-    - dotfiles
