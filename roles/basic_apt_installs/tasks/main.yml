@@ -6,4 +6,3 @@
   vars:
     packages:
     - python-setuptools # and this, can stay, all other moved to a "customisation role"
-    - sqlite3      # because easy testing database
