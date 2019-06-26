@@ -1,8 +1,0 @@
-- name: installing some really basic packages
-  apt:
-    name: "{{ packages }}"
-    force_apt_get: true
-    state: present
-  vars:
-    packages:
-    - python-setuptools # and this, can stay, all other moved to a "customisation role"
