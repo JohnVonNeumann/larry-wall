@@ -1,7 +1,0 @@
-- name: installing neovim 
-  homebrew:
-    name: neovim
-    state: present
-  when: ansible_os_family == "Darwin" 
-
-  # add tasks for other OS families when they are needed

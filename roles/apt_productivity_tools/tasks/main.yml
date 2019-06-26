@@ -1,0 +1,11 @@
+- name: installing productivity tooling 
+  apt:
+    name: "{{ packages }}"
+    force_apt_get: true
+    state: present
+  vars:
+    packages:
+    - xclip        # for copypasta piping usability from the cmd line
+    - git-extras   # extra git functionality from old mate tj holowaychuk and co
+    - redshift     # screen temperature/white light limiter
+
