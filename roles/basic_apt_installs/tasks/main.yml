@@ -12,7 +12,6 @@
   vars:
     packages:
     - python-setuptools # and this, can stay, all other moved to a "customisation role"
-    - htop         # for system viewing functionality
     - xclip        # for copypasta piping usability from the cmd line
     - git-extras   # extra git functionality from old mate tj holowaychuk and co
     - redshift     # screen temperature/white light limiter

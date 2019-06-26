@@ -35,3 +35,8 @@
   apt:
     name: wireshark
     state: present
+
+- name: install htop
+  apt:
+    name: htop 
+    state: present
