@@ -1,9 +1,0 @@
-- name: removing unnecessary directories and files added by default
-  file:
-    path: "{{ item }}"
-    state: absent
-  with_items:
-    - ~/examples.desktop
-    - ~/Music
-    - ~/Videos
-    - ~/Templates
