@@ -1,21 +1,17 @@
+- name: Creates directory
+  file:
+    path: ~/code
+    state: directory
+
 - name: cloning dotfiles to import terminal settings
   git:
     repo: 'https://github.com/JohnVonNeumann/dotfiles.git'
-    dest: /home/lw/dotfiles
+    dest: ~/code/dotfiles
 
-- name: creating terminator config directory
-  file:
-    path: ~/.config/terminator
-    state: directory
-    owner: lw
-    group: lw
-
-- name: copying terminator dotfiles into the relevant config file locations
-  copy:
-    src: /home/lw/dotfiles/.config/terminator/config
-    dest: /home/lw/.config/terminator
-    owner: lw
-    group: lw
+- name: run the dotbot install script
+  shell: ./install
+  args:
+    chdir: ~/code/dotfiles
 
 - name: creating vimplug directory
   file: 
@@ -29,16 +25,5 @@
     url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     dest: ~/.vim/autoload/plug.vim
 
-- name: copying vimrc files to config vim
-  copy:
-    src: /home/lw/dotfiles/.vimrc
-    dest: /home/lw
-    owner: lw
-    group: lw
-
-- name: updating .bashrc file
-  copy:
-    src: /home/lw/dotfiles/.bashrc
-    dest: /home/lw/.bashrc
-    owner: lw
-    group: lw
+# Replace the old (deleted already) tasks with a task that runs the submodule I use that performs
+# a hard link from the dotfiles dir into the relevant file config locations.
