@@ -5,3 +5,5 @@
     - { role: ssh, become: yes }
     - dotfiles
     - { role: apt_development_tools, become: yes }
+    - { role: apt_window_manager, become: yes }
+    - { role: apt_system_programming, become: yes }
