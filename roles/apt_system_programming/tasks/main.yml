@@ -16,3 +16,12 @@
     - manpages
     - manpages-posix
     - manpages-posix-dev
+
+- name: install command line tools for errno
+  apt:
+    name: "{{ packages }}"
+    force_apt_get: true
+    state: present
+  vars:
+    packages:
+    - moreutils
