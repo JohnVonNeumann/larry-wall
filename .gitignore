@@ -1,4 +1,8 @@
-venv-*
-*.retry
-*.swp
-*.env
+# programs
+*.retry         # ansible
+
+# local development environment
+tags.lock       # ctags
+*.swp           # vim
+venv-*          # py virtualenv
+*.env           # environment files
