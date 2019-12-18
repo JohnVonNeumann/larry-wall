@@ -3,4 +3,5 @@
   gather_facts: yes
 
   roles:
-    - apt_communication
+    - weechat
+    #- apt_communication

@@ -1,0 +1,25 @@
+---
+# tasks file for weechat
+- name: installing openssl for macos weechat compatibility
+
+- name: installing weechat
+  homebrew:
+    name: weechat
+    state: present
+    update_homebrew: yes
+  when: ansible_os_family == "Darwin"
+  become: false
+
+- name: installing weechat
+  apt:
+    name: weechat
+    state: present
+    update_cache: yes
+  when: ansible_os_family == "Debian"
+
+- name: installing weechat
+  yum:
+    name: weechat
+    state: present
+    update_cache: yes
+  when: ansible_os_family == "RedHat"
